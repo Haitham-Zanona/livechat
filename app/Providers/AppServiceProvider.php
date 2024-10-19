@@ -21,10 +21,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         HttpClient::init([
-            'applicationId' => env('UNSPLASH_ACCESS_KEY'),
-            'secret' => env('UNSPLASH_SECRET_KEY'),
-            'callbackUrl' => env('APP_URL'),
-            'utmSource' => env('APP_NAME'),
+            'applicationId' => config('unsplash.applicationId'),
+            'secret' => config('unsplash.secret'),
+            'callbackUrl' => config('unsplash.redirectUri'),
+            'utmSource' => config('unsplash.utmSource'),
         ]);
 
     }

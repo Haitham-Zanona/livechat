@@ -14,7 +14,7 @@
         "pusher/pusher-php-server": "^7.2",
         "symfony/polyfill-php72": "^1.31",
         "twbs/bootstrap-icons": "^1.11",
-        "unsplash/unsplash": "^3.2"
+        "unsplash/unsplash": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
