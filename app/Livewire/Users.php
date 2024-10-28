@@ -52,7 +52,7 @@ class Users extends Component
         }
         #Create conversation
         $createdConversation= Conversation::create([
-            // dd($authenticatedUserId),
+            // dd($userId),
             'sender_id' => $authenticatedUserId,
             'receiver_id' => $userId,
         ]);

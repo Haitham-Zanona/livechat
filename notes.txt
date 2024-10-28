@@ -1,0 +1,10 @@
+when you push the message in chat the body field didn't reset
+
+when you click on chat at chatlist doesn't appear on top of chatlist
+
+when you scroll up to top chat-box to load more messages didn't work and I create a function to make scroll bar in the middle when you scroll it up to load more messages
+
+when you send a message there is delay between submit and send message
+
+
+
