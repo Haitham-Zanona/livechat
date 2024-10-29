@@ -6,5 +6,6 @@ when you scroll up to top chat-box to load more messages didn't work and I creat
 
 when you send a message there is delay between submit and send message
 
+Route::get('/chat',Index::class)->name('chat.index'); gives me 404 not found
 
 
