@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\LoginRequest;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use App\Livewire\Chat\Chat;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
+use App\Providers\RouteServiceProvider;
+use App\Http\Requests\Auth\LoginRequest;
+use App\Models\Conversation;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -29,7 +31,16 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        // Check if the user's chat list is empty
+        $userChats = Conversation::where('sender_id', Auth::id())->count();
+
+        if ($userChats == 0) {
+            return redirect()->route('users'); // Redirect to users view page
+        }
+
+        return redirect()->route('chat.index'); // Redirect to chat view page
+
+        // return redirect()->intended(RouteServiceProvider::HOME);
     }
 
     /**
